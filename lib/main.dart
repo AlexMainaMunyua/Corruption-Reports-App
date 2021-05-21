@@ -1,3 +1,6 @@
+import 'package:corruption_application/view/contribute.dart';
+import 'package:corruption_application/view/externallinks.dart';
+import 'package:corruption_application/view/twittersearch.dart';
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:get/get.dart';
@@ -24,18 +27,9 @@ class _MyAppState extends State<MyApp> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   List<Widget> _widgetOptions = <Widget>[
     MyHomePage(),
-    Text(
-      'Index 1: Business',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 3: Settings',
-      style: optionStyle,
-    ),
+    TwitterSearch(),
+    ExternalLink(),
+    Contribute(),
   ];
 
   void _onItemTapped(int index) {
@@ -60,7 +54,7 @@ class _MyAppState extends State<MyApp> {
           home: Scaffold(
             appBar: AppBar(
               backgroundColor:
-                  isDarkMode ? Colors.grey.shade900 : Colors.grey.shade300,
+                  isDarkMode ? Colors.grey.shade900 : Colors.grey.shade200,
               title: isDarkMode
                   ? Text("Kenya Beats Corruption",
                       style: TextStyle(
@@ -83,7 +77,7 @@ class _MyAppState extends State<MyApp> {
             bottomNavigationBar: BottomNavigationBar(
               type: BottomNavigationBarType.fixed,
               backgroundColor:
-                  isDarkMode ? Colors.grey.shade900 : Colors.grey.shade300,
+                  isDarkMode ? Colors.grey.shade900 : Colors.grey.shade200,
               selectedItemColor:
                   isDarkMode ? Colors.white : Colors.grey.shade900,
               showSelectedLabels: true,
@@ -97,21 +91,21 @@ class _MyAppState extends State<MyApp> {
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(
-                    Icons.twelve_mp,
+                    Icons.search,
                   ),
-                  label: 'twitter',
+                  label: 'Twitter search',
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(
                     Icons.insert_link,
                   ),
-                  label: 'links',
+                  label: 'Links',
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(
-                    Icons.confirmation_number_outlined,
+                    Icons.add,
                   ),
-                  label: 'contribute',
+                  label: 'Contribute',
                 ),
               ],
               currentIndex: _selectedIndex,
